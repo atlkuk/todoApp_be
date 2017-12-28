@@ -47,10 +47,10 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show($id)
     {
         //
-        return $item;
+        return Item::findOrFail($id);
     }
 
     /**

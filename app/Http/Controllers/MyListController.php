@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MyList;
 use Illuminate\Http\Request;
+use DB;
 
 class MyListController extends Controller
 {
@@ -48,10 +49,10 @@ class MyListController extends Controller
      * @param  \App\MyList  $myList
      * @return \Illuminate\Http\Response
      */
-    public function show(MyList $myList)
+    public function show($id)
     {
         //
-        return $myList;
+        return MyList::findOrFail($id);
     }
 
     /**
@@ -93,5 +94,12 @@ class MyListController extends Controller
         $myList->delete();
 
         return response()->json(null, 204);
+    }
+
+
+    public function items($id)
+    {
+        //
+        return DB::table('items')->where('list_id', $id)->get();
     }
 }

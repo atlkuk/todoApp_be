@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('users', 'UserController');
 Route::resource('mylists', 'MyListController');
 Route::resource('items', 'ItemController');
+
+Route::get('mylists/{id}/items', 'MyListController@items');
