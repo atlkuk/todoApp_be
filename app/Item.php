@@ -8,6 +8,6 @@ class Item extends Model
 {
     //
     protected $fillable = [
-        'title','description','index','expireDate'
+        'title','description','index','expire_date','list_id'
     ];
 }
