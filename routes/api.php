@@ -21,4 +21,4 @@ Route::resource('users', 'UserController');
 Route::resource('mylists', 'MyListController');
 Route::resource('items', 'ItemController');
 
-Route::get('mylists/{id}/items', 'MyListController@items');
+Route::post('mylists/items', 'MyListController@items');

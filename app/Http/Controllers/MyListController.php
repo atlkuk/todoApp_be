@@ -77,6 +77,7 @@ class MyListController extends Controller
     public function update(Request $request, MyList $myList)
     {
         //
+        $myList = MyList::findOrFail($request->input('id'));
         $myList->update($request->all());
 
         return response()->json($myList, 200);
@@ -97,9 +98,15 @@ class MyListController extends Controller
     }
 
 
-    public function items($id)
+    public function items(Request $request)
     {
         //
-        return DB::table('items')->where('list_id', $id)->get();
+        $ids = $request->input('ids');
+        if(count($ids) == 0){
+            return DB::table('items')->get();
+        }
+        else{
+            return DB::table('items')->whereIn('list_id', $ids)->get();
+        }
     }
 }
