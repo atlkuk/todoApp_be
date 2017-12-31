@@ -21,7 +21,7 @@ class ItemsTableSeeder extends Seeder
         for ($j=1; $j < 4; $j++) { 
             for ($i = 0; $i < 10; $i++) {
                 Item::create([
-                    'title' => 'Item-'.($i+1),
+                    'title' => 'Item-'.$j.'.'.($i+1),
                     'description' => $faker->text,
                     'index' => $i,
                     'expire_date' => date( "Y-m-d", strtotime( date('Y-m-d')." +1 day" ) ),
