@@ -19,8 +19,6 @@ DB_PASSWORD=PASSWORD
 ```
 save the file
 
-create a db called **todoapp**
-
 then import **dump.sql** file in your db
 
 ## Endpoint
