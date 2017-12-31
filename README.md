@@ -5,4 +5,19 @@ clone repository `git clone https://github.com/atlkuk/todoApp_be.git` into **tod
 
 move into **todoApp_be** folder and run `composer update`
 
-then run `php artisan serve` to start laravel development on http://localhost:8000
+## DB configuration
+open **.env** file and set 
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=todoapp
+DB_USERNAME=USERNAME
+DB_PASSWORD=PASSWORD
+```
+save the file
+
+then import **dump.sql** file in your db
+
+## Endpoint
+go to http://localhost/todoApp/todoApp_be/public/api/mylists to see API REST working
