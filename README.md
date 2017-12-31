@@ -7,6 +7,7 @@ clone repository `git clone https://github.com/atlkuk/todoApp_be.git` into **tod
 move into **todoApp_be** folder and run `composer update`
 
 ## DB configuration
+run `cp .env.example .env`
 open **.env** file and set 
 ```
 DB_CONNECTION=mysql
@@ -17,6 +18,8 @@ DB_USERNAME=USERNAME
 DB_PASSWORD=PASSWORD
 ```
 save the file
+
+create a db called **todoapp**
 
 then import **dump.sql** file in your db
 
