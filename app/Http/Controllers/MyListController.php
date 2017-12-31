@@ -103,10 +103,22 @@ class MyListController extends Controller
         //
         $ids = $request->input('ids');
         if(count($ids) == 0){
-            return DB::table('items')->get();
+            $mylists = DB::table('my_lists')->get();
         }
         else{
-            return DB::table('items')->whereIn('list_id', $ids)->get();
+            $mylists = DB::table('my_lists')->whereIn('id', $ids)->get();
         }
+        $array = array();
+        foreach ($mylists as $key => $list) {
+            $arr_list = (array)$list;
+            $items = DB::table('items')->where('list_id', $list->id)->get();
+            $arr_items = array();
+            foreach ($items as $key => $item) {
+                array_push($arr_items, (array)$item);
+            }
+            $arr_list['items'] = $arr_items;
+            array_push($array, $arr_list);
+        }
+        return json_encode($array);
     }
 }
