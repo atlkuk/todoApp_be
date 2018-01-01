@@ -21,5 +21,14 @@ save the file
 
 then import **dump.sql** file in your db
 
+## Migrations
+another way to install DB is to create a schema called **todoapp**
+
+then move into **todoApp_be** folder via shell and run 
+```
+php artisan migrate
+php artisan db:seed
+```
+
 ## Endpoint
 go to http://localhost/todoApp/todoApp_be/public/api/mylists to see API REST working
